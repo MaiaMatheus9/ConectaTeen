@@ -1,0 +1,130 @@
+#inicio {
+    background-color: #fff;
+    color: #0a0303;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+}
+
+#inicio h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#inicio p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#inicio img {
+    max-width: 80%;
+    height: auto;
+
+}
+
+#cursos {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+#Inscrição {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilo para imagens */
+img {
+    max-width: 400%;
+    height: auto;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Cor de fundo suave */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+nav ul li a:hover, nav ul li a:focus,  nav ul li a:active {
+    transition: 0.5s;
+    color: #ff6600;
+}
+
+section {
+    padding: 40px;
+}
+
+section h2 {
+    color: #333;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form label,
+form input,
+form textarea,
+form button,
+form select {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Estilos adicionais para realçar áreas específicas */
+/* #inicio {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+} */
+
+#cursos {
+    background-color: #f0f0f0; /* Fundo suave */
+    padding: 20px;
+}
+
+#Inscrição {
+    background-color: #fff; /* Fundo branco */
+    border-radius: 5px; /* Cantos arredondados */
+    padding: 20px;
+}
