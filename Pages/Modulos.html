@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Style/Modulos.css">
+    <title>Curso de Informática</title>
+</head>
+<body>
+    <header>
+        <h1>Curso de Informática</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#modulo1" class="modulo-navbar">Módulo 1: Introdução</a></li>
+            <li><a href="#modulo2" class="modulo-navbar locked-navbar">Módulo 2: Software e hardware</a></li>
+            <li><a href="#modulo3" class="modulo-navbar locked-navbar">Módulo 3: Navegação na Web</a></li>
+            <li><a href="#modulo4" class="modulo-navbar locked-navbar">Módulo 4: Segurança e Manutenção do Computador </a></li>
+            <li><a href="#modulo5" class="modulo-navbar locked-navbar">Módulo 8: Projeto Final</a></li>
+        </ul>
+    </nav>
+
+    <h4 style="padding: 20px;">Se houver alguma dúvida ou sugestão, deixe nos comentários das vídeo aulas<br>
+    ou entre em contato conosco: conctateen@gmail.com</h4>
+
+    <section id="modulo1" class="modulo" data-palavra-chave="Introducao">
+        <h2>Módulo 1: Introdução</h2>
+        <p>Introdução à Informática</p>
+        <p>Apresentação do curso e dos objetivos</p>
+        <p>Introdução aos componentes básicos de um computador</p>
+        <p>Familiarização com o sistema operacional (Windows ou Linux)</p>
+        <p>Noções básicas de navegação na web e uso de um navegador</p>
+        <p>Configurações e personalização do ambiente de trabalho</p>
+
+        <div class="questionario" data-modulo="1">
+            <h3>Questionário</h3>
+            <form id="questionario-1">
+                <label for="pergunta1">Pergunta: Qual é o sistema operacional mais utilizado no mundo?</label>
+                <input type="text" id="pergunta1" name="pergunta1" required>
+        
+                <button type="button" onclick="verificarRespostas(1)">Verificar Respostas</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="modulo2" class="modulo-sec locked">
+        <h2>Módulo 2: Software e hardware</h2>
+        <p>Software e Aplicativos</p>
+        <p>Diferença entre software e hardware</p>
+        <p>Noções básicas sobre tipos de software (sistema operacional, aplicativos, utilitários)</p>
+        <p>Introdução aos aplicativos de escritório (processador de texto, planilha de cálculo, apresentações)</p>
+        <p>Exploração das funcionalidades básicas de um pacote de escritório</p>
+    </section>
+
+    <section id="modulo3" class="modulo-sec locked">
+        <h2>Módulo 3: Navegação na Web</h2>
+        <p>Navegação na Web e Comunicação Online</p>
+        <p>Uso de mecanismos de busca eficazes</p>
+        <p>Navegação segura na web e identificação de ameaças online</p>
+        <p>E-mails e comunicação online (envio, recebimento, anexos)</p>
+        <p>Uso básico das redes sociais e ferramentas de comunicação (Facebook, Twitter, Skype)</p>
+    </section>
+
+    <section id="modulo4" class="modulo-sec locked">
+        <h2>Módulo 4: Segurança e Manutenção do Computador</h2>
+        <p>Segurança e Manutenção do Computador</li>
+        <p>Noções básicas de segurança online (senhas seguras, antivírus, atualizações)</li>
+        <p>Backup de dados e recuperação de arquivos</li>
+        <p>Limpeza e manutenção regular do sistema</li>
+        <p>Solução de problemas comuns e suporte básico</li>
+    </section>
+
+    <section id="modulo5" class="modulo-sec locked">
+        <h2>Módulo 5: Projeto Final</h2>
+        <p>A avaliação será baseada na participação dos alunos durante as aulas e em um pequeno projeto final, 
+        <br>onde eles terão que aplicar os conhecimentos adquiridos em um cenário prático.</p>
+    </section>
+
+    <footer>
+        <p>&copy; ConectaTeen</p>
+    </footer>
+    <script src="../Scripts/Modulos.js"></script>
+</body>
+</html>

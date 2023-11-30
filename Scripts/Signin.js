@@ -1,164 +1,89 @@
 let btn = document.querySelector('.fa-eye');
 
-btn.addEventListener('click', () => {
-    let inputSenha = document.querySelector('#senha');
-    if (inputSenha.type === 'password') {
-        inputSenha.type = 'text';
-    } else {
-        inputSenha.type = 'password';
-    }
-});
-
-let button = document.querySelector('#button');
-
-//let usuario = document.querySelector('#usuario');
-let linhaUsuario = document.querySelector('#linhaUsuario');
-let CheckUsuario = false;
-
-//let senha = document.querySelector('#senha');
-let linhaSenha = document.querySelector('#linhaSenha');
-let CheckSenha = false;
-
-let msgError = document.querySelector('#msgError');
-let msgSucess = document.querySelector('#msgSucess');
-
-const checkData = {
-    usuario: false,
-    senha: false,
-  };
+btn.addEventListener('click', ()=>{
+  let inputSenha = document.querySelector('#senha');
   
-  const Data = {
-    usuario: '',
-    senha: '',
-  };
+  if(inputSenha.getAttribute('type') == 'password'){
+    inputSenha.setAttribute('type', 'text');
+  } else {
+    inputSenha.setAttribute('type', 'password');
+  }
+})
 
-  document.getElementById('usuario').addEventListener('input', function (e) {
-    const usuario = e.target.value;
-    if (usuario.length < 1 || usuario.length > 105) {
-      console.log('Título da questão deve ter entre 1 e 100 caracteres');
-      //document.getElementById('erro-usuario').style.display = 'block';
-      checkData.titulo = false;
-    } else {
-      //document.getElementById('erro-usuario').style.display = 'none';
-      Data.usuario = usuario;
-      checkData.usuario = true;
-    }
-    if (checkData.usuario == true && checkData.senha == true) {
-      button.removeAttribute('disabled');
-    } else {
-        button.setAttribute('disabled', 'disabled');
-    }
-    console.log(Data);
-  });
-
-
-    document.getElementById('senha').addEventListener('input', function (e) {  
-        const senha = e.target.value;
-        if (senha.length < 1 || senha.length > 1024) {
-            console.log('Descrição da questão deve ter entre 1 e 1024 caracteres');
-            //document.getElementById('erro-senha').style.display = 'block';
-            checkData.senha = false;
-            } else {
-            //document.getElementById('erro-senha').style.display = 'none';
-            Data.senha = senha;
-            checkData.senha = true;
-            }
-            if (checkData.usuario == true && checkData.senha == true) {
-                button.removeAttribute('disabled');
-            } else {
-                button.setAttribute('disabled', 'disabled');
-            }
-        console.log(Data);
-    });
-/*fetch('php/IndexConsulta.php')
-    .then((response) => {
-      if(response.status >= 200 && response.status < 300) {
-        return response.json();
-      }
-      throw new Error(response.statusText);
-    }).then((estudantes) => {
-      console.log(estudantes);
-    }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-    
-    if (usuario.value == '') {
-            linhaUsuario.setAttribute('style', 'color: red;')
-            linhaUsuario.innerHTML = '<strong>Usuário/nome ou email *Campo Obrigatório</strong>'
-            usuario.setAttribute('style', 'border-color: red;');
-            CheckUsuario = false;
-        } else {
-            linhaUsuario.setAttribute('style', 'color: green;');
-            linhaUsuario.innerHTML = 'Usuario/nome ou email';
-            usuario.setAttribute('style', 'border-color: green;');
-            CheckUsuario = true;
-        }
-    
-        if (senha.value == '') {
-            linhaSenha.setAttribute('style', 'color: red;');
-            linhaSenha.innerHTML = '<strong>Senha *Campo Obrigatório</strong>';
-            senha.setAttribute('style', 'border-color: red;');
-            CheckSenha = false;
-        } else {
-            linhaSenha.setAttribute('style', 'color: green;');
-            linhaSenha.innerHTML = 'Senha';
-            senha.setAttribute('style', 'border-color: green;');
-            CheckSenha = true;
-        }
-    
-console.log(CheckSenha, CheckUsuario)*/
-
-function getStudents() {
-    fetch('../php/IndexConsulta.php')
-    .then((response) => {
-    if(response.status >= 200 && response.status < 300) {
-        return response.json();
-    }
-    throw new Error(response.statusText);
-    })
-    .then((estudantes) => {
-        console.log(estudantes);
-        logar(estudantes);
-    })
-    .catch((error) => {
-        console.log(error);
-    });
-} 
-
-function logar(estudantes) {
-    if (Array.isArray(estudantes) && estudantes.some(estudante => estudante.nome_estudante == usuario.value || estudante.email == usuario.value)) {
-        const usuarioValido = estudantes.some(estudante => estudante.nome_estudante == usuario.value || estudante.email == email.value);
-        const senhaValida = estudantes.some(estudante => estudante.senha == senha.value);
-                
-        console.log('Ta passando por aqui 1');
-
-        if (usuarioValido && senhaValida) {
-            msgError.innerHTML = '';
-            msgError.style.display = 'none';
-            msgSucess.innerHTML = '<strong>Entrando...</strong';
-            msgSucess.style.display = 'block';
-                    
-            console.log('Ta passando por aqui 2');
-
-            setTimeout(() => {
-                window.location.href = '../Pages/Votacao.html';
-            }, 3000);
-        } else {
-            msgSucess.innerHTML = '';
-            msgSucess.style.display = 'none';
-            msgError.style.display = 'block';
-            msgError.innerHTML = '<strong>Usuário/nome/email ou senha inválido</strong';
-
-            console.log('Ta passando por aqui 3');
-        }
-    } else {
-        msgSucess.innerHTML = '';
-        msgSucess.style.display = 'none';
+function entrar(){
+  let usuario = document.querySelector('#usuario');
+  let userLabel = document.querySelector('#userLabel');
+  
+  let senha = document.querySelector('#senha');
+  let senhaLabel = document.querySelector('#senhaLabel');
+  
+  let msgError = document.querySelector('#msgError');
+  let msgSuccess = document.querySelector('#msgSuccess');
+  let listaUser = [];
+  
+  let userValid = {
+    nome: '',
+    user: '',
+    senha: ''
+  }
+  
+  listaUser = JSON.parse(localStorage.getItem('listaUser')) || [];
+  console.log(listaUser);
+  if(listaUser){
+    listaUser.forEach((item) => {
+      if(usuario.value == item.userCad && senha.value == item.senhaCad){
         
+        userValid = {
+          nome: item.nomeCad,
+          user: item.userCad,
+          senha: item.senhaCad
+        }
+        
+      }
+    })
+  }
+   
+  console.log(userValid);
 
-        console.log('Só ta passando por aqui');
+  if(usuario.value == userValid.user && senha.value == userValid.senha){
+    console.log("Tá chegando aqui");
+    if(msgError){
+      msgError.innerHTML = '';
+      msgError.setAttribute('style', 'display: none');
     }
-}
+    msgSuccess.setAttribute('style', 'display: block');
+    msgSuccess.innerHTML = '<strong>Entrando...</strong>';
+    userLabel.setAttribute('style', 'color: green');
+    usuario.setAttribute('style', 'border-color: green');
+    senhaLabel.setAttribute('style', 'color: green');
+    senha.setAttribute('style', 'border-color: green');
+    setTimeout(() => {
+      if (msgSuccess) {
+        msgSuccess.innerHTML = '';
+        msgSuccess.setAttribute('style', 'display: none');
+      }
+      userLabel.setAttribute('style', 'color: 0d009c');
+      usuario.setAttribute('style', 'border-color: 0d009c');
+      senhaLabel.setAttribute('style', 'color: 0d009c');
+      senha.setAttribute('style', 'border-color: 0d009c');
+      window.location.href = '../Pages/Modulos.html';
+    }, 3000)
     
+    let mathRandom = Math.random().toString(16).substr(2);
+    let token = mathRandom + mathRandom;
+    
+    localStorage.setItem('token', token);
+    localStorage.setItem('userLogado', JSON.stringify(userValid));
+  } else {
+    userLabel.setAttribute('style', 'color: red');
+    usuario.setAttribute('style', 'border-color: red');
+    senhaLabel.setAttribute('style', 'color: red');
+    senha.setAttribute('style', 'border-color: red');
+    msgError.setAttribute('style', 'display: block');
+    msgError.innerHTML = 'Usuário ou senha incorretos';
+    usuario.focus();
+  }
+  
+}
+
+
